@@ -1,0 +1,106 @@
+// @import url('https://moritzzimmer.com/fonts/KambriWeb/KambriWebDURL.css');
+@import url('https://cdn.schrift.co/fonts/KambriWeb3/KambriWeb3.css');
+// @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+
+
+/* FONT RELATEDED */
+body *{
+  font-family: 'KambriWeb3';
+}
+.primary-navigation .menu-item > a{
+  font-family: 'KambriWeb3';
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+
+body{
+  font-feature-settings: "ss01";
+  letter-spacing: -0.025em;
+  transition: filter 0.25s;
+}
+h1, h2, h3, h4, h5{
+  letter-spacing: -0.015em;
+  font-feature-settings: initial;
+}
+h1{
+  letter-spacing: -0.03em;
+}
+
+
+@keyframes mazFadeOut{
+  from{ opacity: 1;}
+  to  { opacity: 0;}
+}
+
+.this--fadeout{
+  animation: mazFadeOut 0.750s forwards;
+  opacity: 0.0 !important;
+}
+
+
+
+
+
+/* REMOVE TOP SPACE */
+#main.site-main{
+  padding-top: 0;
+}
+#main .entry-content{
+  margin-top: 0;
+}
+.entry-content > *:first-child, .entry-content > .alignwide:first-child,
+.entry-content [class*=inner-container] > *:first-child{
+  margin-top: 0 !important;
+}
+.entry-header {
+  display: none;
+}
+
+
+
+
+.baguetteBox-open > *:not(#baguetteBox-overlay){
+  filter: blur(10px);
+}
+
+
+
+
+#baguetteBox-overlay{
+  button{
+   background: transparent;
+   position: absolute;
+   outline: none;
+
+   &:before{
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    border-radius: 100%;
+    background: var(--wp--style--color--link);
+    z-index: 0;
+   }
+
+   svg{
+    position: relative;
+    z-index: 1;
+   }
+
+   &:hover,
+   &:active,
+   &:focus{
+     opacity: 0.8;
+   }
+
+
+   &:focus{
+    &:before{
+      border: 2px solid var(--global--color-background);
+    }
+   }
+ }
+}

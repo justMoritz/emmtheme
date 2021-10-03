@@ -1,0 +1,47 @@
+
+#masthead{
+  background: transparent;
+  height: auto;
+  left: 60px;
+  margin-left: auto;
+  max-width: 100vh;
+  padding: 0;
+  padding-right: 60px;
+  position: fixed;
+  transform-origin: top left;
+  transform: rotate(90deg);
+  width: 100vh;
+  z-index: 1000;
+}
+
+.site-logo {
+  margin: 0;
+}
+.site-logo .custom-logo{
+  height: 60px !important;
+  margin: 0;
+}
+
+.primary-navigation a:hover{
+  text-decoration-style: initial;
+}
+.site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) img{
+  // outline: 1px solid var(--wp--style--color--link, var(--global--color-primary));
+  outline: auto 5px var(--wp--style--color--link, var(--global--color-primary));
+  // outline: none;
+  // #303aff
+}
+.site .button:focus, button:focus, input[type=submit]:focus, input[type=reset]:focus, .wp-block-search .wp-block-search__button:focus, .wp-block-button .wp-block-button__link:focus, .wp-block-file a.wp-block-file__button:focus{
+  outline: 2px solid currentColor;
+}
+
+.site-header > .site-logo{
+  padding-bottom: 0;
+  width: auto;
+  border: none;
+}
+
+.site-header > .site-logo,
+.primary-navigation{
+  transform: rotate(180deg)
+}

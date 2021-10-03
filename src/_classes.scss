@@ -1,0 +1,88 @@
+
+/* MORE UTILITY CLASSES */
+.font-100{ font-weight: 100; }
+.font-200{ font-weight: 200; }
+.font-300{ font-weight: 300; }
+.font-400{ font-weight: 400; }
+.font-500{ font-weight: 500; }
+.font-600{ font-weight: 600; }
+.font-700{ font-weight: 700; }
+.font-800{ font-weight: 800; }
+.font-900{ font-weight: 900; }
+.nowrap{ white-space: nowrap; }
+
+
+.font-feature-initial{
+  font-feature-settings: initial;
+}
+
+.uptop{
+  background: white !important;
+  box-shadow: 1px -20px 25px -30px rgb(0 0 0 / 15%);
+  margin-top: -1em !important;
+  padding: 0.1em 0.2em;
+  position: relative;
+}
+
+
+.homepage-top-overlap{
+  margin-top: -400px !important;
+}
+
+
+.position-relative{
+  position: relative;
+  z-index: 2;
+}
+
+
+.ru-about{
+  padding-left: 60px !important;
+  position: relative;
+  z-index:1;
+}
+
+
+.wondershadow{
+  text-shadow:
+    1px 0px white,
+    2px 0px white,
+    3px 0px white,
+    4px 0px white,
+    5px 0px white,
+    6px 0px white,
+    7px 0px white,
+    8px 0px white,
+    9px 0px white,
+    10px 0px white,
+    11px 0px white,
+    12px 0px white;
+}
+
+
+.large-right-block{
+
+  @media(min-width: 1200px){
+    .wp-block-column:nth-child(2) > *{
+      padding-right: 25% !important;
+    }
+  }
+
+  @media(max-width: 599px){
+    .wp-block-column{
+      &:nth-child(1){
+        order: 2;
+      }
+      &:nth-child(2){
+        order: 1;
+      }
+    }
+  }
+}
+
+
+.soft-white-text-shadow{
+  text-shadow: 1px 1px 20px #ffffff44;
+}
+
+
