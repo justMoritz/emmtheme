@@ -22,19 +22,42 @@
   overflow: hidden;
 
   figcaption{
+    // margin: 0;
+    // position: absolute;
+    // top: 0;
+    // z-index: 3;
+    // right: 0;
+    // color: white;
+    // font-weight: 700;
+    // font-size: 3em;
+    // text-align: left;
+    // margin-top: -0.15em;
+    // margin-left: -0.06em;
+    // line-height: 1em;
+    // pointer-events: none;
+
+    color: white;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1em;
     margin: 0;
+    padding: 5%;
+    pointer-events: none;
     position: absolute;
+    right: 0;
+    text-align: left;
     top: 0;
     z-index: 3;
-    right: 0;
-    color: white;
-    font-weight: 700;
-    font-size: 3em;
-    text-align: left;
-    margin-top: -0.15em;
-    margin-left: -0.06em;
-    line-height: 1em;
-    pointer-events: none;
+
+    strong{
+      font-size: 0.5em;
+      line-height: 0.5em;
+      top: -0.5em;
+      position: relative;
+      font-style: normal;
+      font-weight: 700;
+    }
+
 
     @media(max-width: 960px){
       font-size: 1.5em;
@@ -111,4 +134,10 @@ a:hover{
   }
 }
 
+
+.blocks-gallery-item{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 

@@ -75,11 +75,29 @@ function maz_avoid_content_widows( $content ) {
 
 function maz_wrap_image_blocks( $block_content, $block ) {
 
-  // if( $block['blockName'] === 'core/gallery' ) {
-  //   var_dump( $block['attrs']['ids'] );
-  // }
-
   $return_string = $block_content;
+
+
+
+  if( $block["blockName"] === "core/gallery" ) {
+
+    $randomID = "mazgalleryid" + rand(10, 100);
+
+    $return_string .= "<style>";
+
+    $maz_gal_incrementer = 1;
+    foreach( $block["attrs"]["ids"] as $this_image_id) {
+      $small_image_size = wp_get_attachment_image_src($this_image_id, 'maz_8');
+      $return_string .= '[data-mazthisgalid="'.$randomID.'"] .blocks-gallery-item:nth-child('.$maz_gal_incrementer.'){background-image: url("'.$small_image_size[0].'")}';
+      $maz_gal_incrementer++;
+    }
+
+    $return_string .= "</style>";
+
+    $return_string = str_replace( 'class="wp-block-gallery', 'data-mazthisgalid="'.$randomID.'" class="wp-block-gallery', $return_string );
+  }
+
+
 
   if ( $block['blockName'] === 'core/image' || $block['blockName'] === 'core/cover' ) {
 
