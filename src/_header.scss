@@ -1,4 +1,5 @@
 
+#masthead-i,
 #masthead{
   background: transparent;
   height: auto;
@@ -6,12 +7,17 @@
   margin-left: auto;
   max-width: 100vh;
   padding: 0;
-  padding-right: 60px;
+  padding-right: 40px;
   position: fixed;
   transform-origin: top left;
   transform: rotate(90deg);
   width: 100vh;
   z-index: 1000;
+  top: 10px;
+
+  @media(max-height: 600px), (max-width: 450px) {
+    left: 35px;
+  }
 }
 
 .site-logo {
@@ -20,8 +26,13 @@
 .site-logo .custom-logo{
   height: 60px !important;
   margin: 0;
+
+  @media(max-height: 600px), (max-width: 450px) {
+    height: 25px !important;
+  }
 }
 
+.primary-navigation-i a:hover,
 .primary-navigation a:hover{
   text-decoration-style: initial;
 }
@@ -42,6 +53,66 @@
 }
 
 .site-header > .site-logo,
+.primary-navigation-i,
 .primary-navigation{
   transform: rotate(180deg)
+}
+
+
+
+.primary-navigation {
+  position: relative;
+  margin-left: auto;
+}
+.site-logo .custom-logo {
+  max-width: var(--branding--logo--max-width);
+  max-height: var(--branding--logo--max-height);
+  height: auto;
+  width: auto;
+}
+
+@media(max-width: 481px){
+  .site-header.has-logo.has-title-and-tagline.has-menu {
+    justify-content: initial;
+  }
+}
+
+.primary-navigation-i{
+  position: absolute;
+  right: 20px;
+  ul{
+    display: flex;
+    list-style: none;
+    white-space: nowrap;
+    padding: 0;
+
+    li{
+      color: inherit;
+
+      a{
+        // margin: 0 15px;
+        display: inline-block;
+        text-decoration: none;
+
+        padding-left: var(--primary-nav--padding);
+        padding-right: var(--primary-nav--padding);
+        color: var(--primary-nav--color-link-hover);
+
+        &:hover{
+          text-decoration: underline;
+          text-decoration-style: solid;
+        }
+      }
+    }
+  }
+}
+
+
+.primary-navigation-i .current-menu-item > a:first-child{
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+.has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button){
+  background: transparent;
 }

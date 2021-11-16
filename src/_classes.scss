@@ -40,23 +40,21 @@
   padding-left: 60px !important;
   position: relative;
   z-index:1;
+}
 
-  // .wp-block-columns &{
-  //   padding-left: 70px !important;
-  // }
-
+.ru-about,
+.ru-about-mobile{
   @media(max-width: 767px){
     padding-left: 45px !important;
-
-    // .wp-block-columns &{
-    //   padding-left: 40px !important;
-    // }
-
   }
 }
 
 
-
+.home-alignment{
+  @media(min-width: 768px) and (max-width: 1200px){
+    max-width: 90%;
+  }
+}
 
 
 
