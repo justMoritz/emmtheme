@@ -37,7 +37,7 @@
     // pointer-events: none;
 
     color: white;
-    font-size: 2.5em;
+    font-size: var(--heading--font-size-h2);
     font-weight: 700;
     line-height: 1em;
     margin: 0;
@@ -52,7 +52,6 @@
     strong{
       font-size: 0.5em;
       line-height: 1.5em;
-      // top: -0.5em;
       position: relative;
       font-style: normal;
       font-weight: 700;
@@ -61,9 +60,9 @@
     }
 
 
-    @media(max-width: 960px){
-      font-size: 1.5em;
-    }
+    // @media(max-width: 960px){
+    //   font-size: 1.5em;
+    // }
 
   }
 }
@@ -115,6 +114,10 @@ a:hover{
 .wp-block-image{
   position: relative;
 
+  img{
+    position: relative;
+  }
+
   &__image-preloader{
     position: absolute;
     left: 0; top: 0;
@@ -123,7 +126,7 @@ a:hover{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: -1;
+    // z-index: -1;
   }
 }
 
@@ -142,4 +145,83 @@ a:hover{
   background-repeat: no-repeat;
   background-position: center;
 }
+
+
+.wp-block-image.is-style-twentytwentyone-border img,
+.wp-block-image.is-style-twentytwentyone-image-frame img{
+  border: calc(1 * var(--separator--height)) solid var(--global--color-border);
+}
+
+
+// ELEMENT GRID
+.portfolio-post-grid{
+  max-width: calc(100% + 30px) !important;
+  margin-left: -15px;
+  margin-right: -15px;
+  width: calc(100% + 30px);
+
+  .cl-element{
+    font-family: inherit !important;
+
+    &.cl-element-excerpt{
+      font-size: 1.5rem;
+      font-family: inherit !important;
+    }
+
+    &.cl-element-title{
+      position: absolute;
+      bottom: 100%;
+
+      a{
+        opacity: 0;
+        color: white;
+        text-shadow: -1px 1px 15px rgba(0,0,0,0.55);
+        // pointer-events: none;
+      }
+    }
+
+    .cl-element-featured_media__anchor{
+      padding-bottom: 66%;
+      width: 100%;
+      position: relative;
+    }
+
+    .cl-element-featured_media__image{
+      position: absolute;
+      width: 100%; height: 100%;
+      left: 0; top: 0;
+      object-fit: cover;
+
+      &.this--hascolor{
+        opacity: 0.45;
+        mix-blend-mode: luminosity;
+      }
+    }
+  }
+
+  .cl-template--image-top .cl-element-featured_media--sizing-natural.cl-element-featured_media--no-image{
+    padding-top: 66%;
+  }
+
+  .cl-template{
+    h3{
+      font-size: 1.5rem;
+      font-family: inherit;
+    }
+  }
+
+  .portfolio-color-tag{
+    display: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
 

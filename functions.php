@@ -12,10 +12,15 @@ function maz_sanitize_output($buffer) {
 
 
 
+/**
+ * SCSS compiler workflow
+ */
+
 # Sets up SCSS compiler
 require_once "lib/scss.inc.php";
 use ScssPhp\ScssPhp\Compiler;
 $compiler = new Compiler();
+
 
 # load SCSS files
 $scss_includes = [
@@ -24,6 +29,7 @@ $scss_includes = [
   '/src/_theme.scss',
   '/src/_classes.scss',
   '/src/_header.scss',
+  '/src/_forms.scss',
 ];
 $compiled_scss = '';
 $scss_string = '';
@@ -73,16 +79,16 @@ function maz_avoid_content_widows( $content ) {
 
 
 
+/**
+ * Adds pre-loader image to Gutenberg image and gallery block
+ */
 function maz_wrap_image_blocks( $block_content, $block ) {
 
   $return_string = $block_content;
 
-
-
   if( $block["blockName"] === "core/gallery" ) {
 
     $randomID = "mazgalleryid" + rand(10, 100);
-
     $return_string .= "<style>";
 
     $maz_gal_incrementer = 1;
@@ -93,10 +99,8 @@ function maz_wrap_image_blocks( $block_content, $block ) {
     }
 
     $return_string .= "</style>";
-
     $return_string = str_replace( 'class="wp-block-gallery', 'data-mazthisgalid="'.$randomID.'" class="wp-block-gallery', $return_string );
   }
-
 
 
   if ( $block['blockName'] === 'core/image' || $block['blockName'] === 'core/cover' ) {
