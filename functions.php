@@ -51,6 +51,60 @@ add_action('wp_head', function(){
 
 
 
+
+// function load_emmtheme_scripts() {
+//   wp_enqueue_script(
+//     'emmtheme-scripts',
+//     get_stylesheet_directory_uri() . '/src/scripts/emmtheme_scripts.js',
+//     array( 'jquery' )
+//   );
+// }
+// add_action( 'wp_enqueue_scripts', 'load_emmtheme_scripts' );
+
+
+add_action( 'init', 'load_emmtheme_scripts' );
+
+function load_emmtheme_scripts() {
+   wp_register_script( "load_emmtheme_scripts", get_stylesheet_directory_uri() . '/src/scripts/emmtheme_scripts.js', array('jquery') );
+   wp_localize_script( 'load_emmtheme_scripts', 'emmthemeAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
+
+   wp_enqueue_script( 'load_emmtheme_scripts' );
+
+}
+
+
+
+
+function emmtheme_ajax(){
+
+  // parse the slug
+  $passed_url = $_REQUEST["passed_url"];
+  $home_url = get_home_url();
+  $passed_slug = str_replace($home_url, '', $passed_url);
+
+  $current_post_id = url_to_postid($passed_url); // or
+
+  $return = [];
+
+  $return['title']      = get_the_title( $current_post_id );
+  $return['id']         = $current_post_id;
+  $return['bodyclass']  = get_body_class( $current_post_id );
+  $return['content']    = do_shortcode( get_post_field( 'post_content', $current_post_id ) );
+  $return['post_class'] = get_post_class( $current_post_id );
+  $return['post_type']  = get_post_type( $current_post_id );
+
+
+  echo json_encode($return);
+
+  // echo 'You passed ' . $_REQUEST["secondvar"] . '!';
+  die();
+}
+
+add_action('wp_ajax_emmtheme_route', 'emmtheme_ajax');
+add_action('wp_ajax_nopriv_emmtheme_route', 'emmtheme_ajax');
+
+
+
 /**
  * Theme setup
  */

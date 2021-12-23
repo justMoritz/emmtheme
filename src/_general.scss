@@ -29,6 +29,13 @@ h1{
   letter-spacing: -0.03em;
 }
 
+.site a:focus:not(.wp-block-button__link):not(.wp-block-file__button),
+a:focus,
+a:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 
 @keyframes mazFadeOut{
   from{ opacity: 1;}
@@ -40,6 +47,13 @@ h1{
   opacity: 0.0 !important;
 }
 
+.this--fadedout{
+  opacity: 0.0 !important;
+}
+
+.emmtheme-animationtimer{
+  transition: all 0.5s;
+}
 
 
 

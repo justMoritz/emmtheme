@@ -213,3 +213,9 @@
   position: absolute;
 }
 
+
+.mobile-only{
+  @media(min-width: 768px){
+    display: none !important;
+  }
+}
