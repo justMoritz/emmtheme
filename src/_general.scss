@@ -95,27 +95,41 @@ a:hover{
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     width: 60px; height: 60px;
-    border-radius: 100%;
-    background: var(--wp--style--color--link);
+    // border-radius: 100%;
+    // background: var(--wp--style--color--link);
     z-index: 0;
+    background: transparent;
+    border: 3px solid white;
    }
 
    svg{
-    position: relative;
+    // position: relative;
     z-index: 1;
+
+    line,
+    polyline{
+      stroke-linejoin: miter;
+      stroke: white;
+    }
    }
 
    &:hover,
    &:active,
    &:focus{
      opacity: 0.8;
+
+      &:before{
+        border: 3px solid white;
+      }
    }
 
-
    &:focus{
-    &:before{
-      border: 2px solid var(--global--color-background);
-    }
+     opacity: 0.8;
+
+      &:before{
+        filter: drop-shadow(2px 3px 4px #ffffff33);
+        outline: 2px solid var(--wp--style--color--link);
+      }
    }
  }
 }

@@ -19,7 +19,6 @@
  *
  */
 
-
 var emmthemeAjaxJs = (function($){
 
   var $contentHolder, $menu, savedScripts;
@@ -84,6 +83,9 @@ var emmthemeAjaxJs = (function($){
         + message.content
         + '</div>';
         + '</article>';
+
+      // recompile gallery
+      baguetteBox.run('.blocks-gallery-grid');
 
       // update the page title
       document.title = message.title;
@@ -163,37 +165,57 @@ var emmthemeAjaxJs = (function($){
     var $allLinks = document.querySelectorAll("#page a");
 
     $("#page").on("click", "a", function(e){
-      $curA      = $(this);
-
-      e.preventDefault();
-      this.blur();
-
-      // get the current link target
+      var $curA         = $(this);
       var currentHref   = $curA.attr("href");
       var currentTarget = $curA.attr("target");
 
-      if( currentTarget !== "_blank" ){
+      // console.log(currentHref);
+      // if( currentHref.includes("#") ){
 
-        // fade out the content and call the ajax function
-        $contentHolder.classList.add("this--fadedout");
+      // }
 
-        // scroll back to top
-        setTimeout(function(){
-          window.scrollTo(0, 0);
-        }, 550);
-
-        _callAjax( currentHref );
+      if( currentHref.includes("wp-content/uploads") || currentHref.includes("#")  ){
+        console.log('you should be skippin');
+        return;
       }
 
       else{
-        window.open(currentHref, "_blank");
-      }
+
+        console.log('test');
+
+        e.preventDefault();
+        this.blur();
+
+        if( currentTarget !== "_blank"  ){
+
+          // fade out the content and call the ajax function
+          $contentHolder.classList.add("this--fadedout");
+
+          // scroll back to top
+          setTimeout(function(){
+            window.scrollTo(0, 0);
+          }, 550);
+
+          _callAjax( currentHref );
+        }
+
+        else{
+          window.open(currentHref, "_blank");
+        }
+      } // end else (if not uploads)
 
     }); // end link click
 
+
     window.addEventListener("popstate", function(event) {
-      $contentHolder.classList.add("this--fadedout");
-      _callAjax( location.href );
+      if( location.href.includes("wp-content/uploads") || location.href.includes("#")  ){
+        return;
+      }
+      else{
+        $contentHolder.classList.add("this--fadedout");
+        _callAjax( location.href );
+      }
+
     });
 
   }; // end initAjax()

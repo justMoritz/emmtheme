@@ -140,12 +140,23 @@ a:hover{
 }
 
 
-.blocks-gallery-item{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.wp-block-gallery{
+  .blocks-gallery-item{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media(max-width: 599px){
+      width: calc((90% - var(--global--spacing-unit)) / 2);
+      width: 44%;
+      margin: 3%;
+    }
+  }
 }
 
+.wp-block-image img{
+  align-self: flex-start;
+}
 
 .wp-block-image.is-style-twentytwentyone-border img,
 .wp-block-image.is-style-twentytwentyone-image-frame img{
