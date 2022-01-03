@@ -84,10 +84,6 @@ var emmthemeAjaxJs = (function($){
         + '</div>';
         + '</article>';
 
-      // recompile gallery and plugin
-      baguetteBox.run('.blocks-gallery-grid');
-      halveSpacersOnMobile.init();
-
       // update the page title
       document.title = message.title;
 
@@ -102,6 +98,10 @@ var emmthemeAjaxJs = (function($){
       // updates the nav menus
       _setMenu(passedUrl);
 
+      // recompile gallery and plugin
+      baguetteBox.run('.blocks-gallery-grid');
+      halveSpacersOnMobile.init();
+
       // re-execute scripts
       eval(savedScripts); // 🙍🏼‍♀️
 
@@ -109,7 +109,6 @@ var emmthemeAjaxJs = (function($){
       $("#wp-admin-bar-edit a").attr("href", "https://portfolio.moritz.blue/wp-admin/post.php?post="+message.id+"&action=edit")
 
       // TODO: Yoast Title and Meta
-      // TODO: Catch # in URL for same page
     });
 
   }; // end _callAjax()
@@ -199,7 +198,7 @@ var emmthemeAjaxJs = (function($){
 
         _callAjax( currentHref );
 
-      } // end else (if not uploads)
+      } // end else (if not exceptions)
 
     }); // end link click
 
