@@ -84,8 +84,9 @@ var emmthemeAjaxJs = (function($){
         + '</div>';
         + '</article>';
 
-      // recompile gallery
+      // recompile gallery and plugin
       baguetteBox.run('.blocks-gallery-grid');
+      halveSpacersOnMobile.init();
 
       // update the page title
       document.title = message.title;
@@ -169,39 +170,35 @@ var emmthemeAjaxJs = (function($){
       var currentHref   = $curA.attr("href");
       var currentTarget = $curA.attr("target");
 
-      // console.log(currentHref);
-      // if( currentHref.includes("#") ){
 
-      // }
-
-      if( currentHref.includes("wp-content/uploads") || currentHref.includes("#")  ){
-        console.log('you should be skippin');
+      // skip to default behaviour
+      // if we have an image link, or on-page link,
+      // or opens in new tab
+      // or the link is not part of the same page,
+      if(
+        currentHref.includes("wp-content/uploads") ||
+        currentHref.includes("#") ||
+        currentTarget === "_blank" ||
+        (!currentHref.startsWith("/") && !currentHref.includes(emmthemeAjax.homeurl) )
+      ){
         return;
       }
 
       else{
 
-        console.log('test');
-
         e.preventDefault();
         this.blur();
 
-        if( currentTarget !== "_blank"  ){
+        // fade out the content and call the ajax function
+        $contentHolder.classList.add("this--fadedout");
 
-          // fade out the content and call the ajax function
-          $contentHolder.classList.add("this--fadedout");
+        // scroll back to top
+        setTimeout(function(){
+          window.scrollTo(0, 0);
+        }, 550);
 
-          // scroll back to top
-          setTimeout(function(){
-            window.scrollTo(0, 0);
-          }, 550);
+        _callAjax( currentHref );
 
-          _callAjax( currentHref );
-        }
-
-        else{
-          window.open(currentHref, "_blank");
-        }
       } // end else (if not uploads)
 
     }); // end link click

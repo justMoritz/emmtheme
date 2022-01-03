@@ -15,6 +15,20 @@
 }
 
 
+.maz-frame__title{
+  font-size: var(--heading--font-size-h2);
+  font-weight: 700;
+  line-height: 1em;
+  margin: 0;
+  padding: 5%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  top: 0;
+  z-index: 3;
+}
+
 
 /* FIG CAPTION */
 .wp-block-image{
