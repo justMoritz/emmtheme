@@ -40,6 +40,10 @@
       </nav><!-- .footer-navigation -->
     <?php endif; ?>
 
+    <div class="text-center">
+      &copy;&nbsp;<?=date("Y");?>
+    </div>
+
     <?php if(false): ?>
     <div class="site-info">
       <div class="site-name">

@@ -22,6 +22,20 @@
   margin-top: -1em !important;
   padding: 0.1em 0.2em;
   position: relative;
+
+  @media(max-width: 781px){
+    &.dynamic-headline{
+      margin-left: auto;
+      width: calc(100% - 30px);
+      margin-right: 0;
+      padding-left: 5px !important;
+    }
+  }
+}
+
+
+.text-center{
+  text-align: center;
 }
 
 
@@ -45,7 +59,13 @@
 .ru-about,
 .ru-about-mobile{
   @media(max-width: 767px){
-    padding-left: 45px !important;
+    padding-left: 40px !important;
+  }
+}
+
+.ru-about-tablet{
+  @media(max-width: 996px){
+    padding-left: 40px !important;
   }
 }
 
@@ -231,6 +251,10 @@
 .view-more-homepage{
   position: absolute;
   bottom: -5px; right: 0;
+
+  @media(max-width: 600px){
+    position: relative;
+  }
 }
 
 .maz-frame{
@@ -275,49 +299,78 @@
     height: 0;
   }
 
-  &.short-column > .wp-block-column:first-of-type .wp-block-columns{
-    height: 0;
 
-    // alternative
-    height: 80%;
-    max-height: 30vw;
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+  @media(min-width: 782px){
+    &.short-column > .wp-block-column:first-of-type .wp-block-columns{
+      height: 0;
+
+      // alternative
+      height: 80%;
+      max-height: 40vw;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+
+    &:before{
+      content:'';position:absolute;
+      width: 110%; height: 2px;
+      right:0; bottom: 0;
+      background-color: currentcolor;
+      z-index: 5
+    }
+  }
+
+  @media(min-width: 782px) and (max-width: 1200px){
+    font-size: 1.2rem;
+    max-width: 85%;
+  }
+
+  @media(max-width: 781px){
+
+    & > .wp-block-column:last-of-type{
+      padding-top: 25px;
+    }
+
+    .wp-block-column .wp-block-columns:not(.portfolio-piece__websitelist) .wp-block-column{
+      width: 50% !important;
+      flex-basis: 50% !important;
+    }
+
+      & > .wp-block-column:first-of-type .wp-block-columns{
+      min-height: 200px;
+      height: 40vw;
+      overflow: hidden;
+      margin-bottom: -2em;
+      margin-top: -50px;
+      border-bottom: 2px solid;
+      padding: 50px 20px 0 10px;
+    }
+
+    & .wp-block-column:first-of-type .wp-block-columns .wp-block-column:last-of-type{
+      margin-top: 50px;
+      margin-left: -50px;
+    }
+
+    &__websitelist .wp-block-column{
+      margin-left: 0;
+      width: 100%;
+      flex-basis: 100%;
+    }
+
+  }
+
+  @media(max-width: 700px){
+    &__websitelist .wp-block-column{
+      margin-left: 0;
+      width: 100% !important;
+      flex-basis: 100% !important;
+    }
   }
 
 }
 
-
-@media(max-width: 768px){
-  .portfolio-piece .wp-block-column .wp-block-columns .wp-block-column{
-    width: 50% !important;
-    flex-basis: 50% !important;
-  }
-  .portfolio-piece > .wp-block-column:first-of-type .wp-block-columns{
-    min-height: 200px;
-    height: 40vw;
-    overflow: hidden;
-    margin-bottom: -2em;
-    margin-top: -50px;
-    border-bottom: 2px solid;
-    padding: 50px 20px 0 10px;
-  }
-  .portfolio-piece .wp-block-column .wp-block-columns .wp-block-column:last-of-type{
-    margin-top: 50px;
-    margin-left: -50px;
-  }
-}
-@media(min-width: 768px){
-  .portfolio-piece:before{
-    content:'';position:absolute;
-    width: 110%; height: 2px;
-    right:0; bottom: 0;
-    background-color: currentcolor;
-    z-index: 5
-  }
-}
 
 
 
@@ -359,5 +412,38 @@
   left: auto;
   border-radius: 3px;
   background-color: #f5f5f5;
+}
+
+
+
+
+
+.portfolio-square{
+  display: block;
+  position: relative;
+  height: 0 !important;
+  padding-bottom: 100% !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+
+  h4{
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+    width: calc(100% - 16px);
+    z-index: 2;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+
+@media(max-width: 996px){
+  body .site-content .portfolio-squares{
+    flex-wrap: wrap;
+  }
+  body .site-content .portfolio-squares .wp-block-column{
+   flex-basis: calc(50% - 2em) !important;
+   margin: 0 2em 0 0 !important;
+  }
 }
 

@@ -64,6 +64,12 @@ a:hover{
 }
 #main .entry-content{
   margin-top: 0;
+
+  & > *:not(.align-full):not(.alignfull){
+    @media(max-width: 781px){
+      padding-left: 40px !important;
+    }
+  }
 }
 .entry-content > *:first-child, .entry-content > .alignwide:first-child,
 .entry-content [class*=inner-container] > *:first-child{
