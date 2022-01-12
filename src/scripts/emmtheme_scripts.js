@@ -34,6 +34,8 @@ var emmthemeAjaxJs = (function($){
 
     $contentHolder.classList.add("emmtheme-animationtimer");
     savedScripts = $scriptholder.innerHTML;
+
+
   };
 
 
@@ -128,7 +130,7 @@ var emmthemeAjaxJs = (function($){
       // update edit button
       $("#wp-admin-bar-edit a").attr("href", "https://portfolio.moritz.blue/wp-admin/post.php?post="+message.id+"&action=edit")
 
-      // TODO: Yoast Title and Meta
+      $(".testplane").css("opacity", "0").css("transform", "scale(100)");
     });
 
   }; // end _callAjax()
@@ -205,6 +207,16 @@ var emmthemeAjaxJs = (function($){
 
       else{
 
+        var x = e.clientX; //x position within the element.
+        var y = e.clientY;  //y position within the element.
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var cx = x-(w/2);
+        var cy = y-(h/2);
+        $(".testplane").css("opacity", "1").css("left", cx+"px ").css("top", cy+"px").css("transform", "scale(1)");
+
+
+
         e.preventDefault();
         this.blur();
 
@@ -220,6 +232,7 @@ var emmthemeAjaxJs = (function($){
         }, 550);
 
         _callAjax( currentHref );
+
 
       } // end else (if not exceptions)
 

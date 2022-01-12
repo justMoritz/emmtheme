@@ -139,3 +139,33 @@ a:hover{
    }
  }
 }
+
+
+
+.testplane{
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  pointer-events: none !important;
+  position: fixed;
+  top: 0;
+  transform: scale(100);
+  transition: 0.25s transform;
+  width: 100%;
+  z-index: 900;
+
+  &__inner{
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background: radial-gradient(circle, transparent 0.9%,#fefefe 0.95%,#ffffff 1%);
+    height: 200%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+  }
+}
+
+

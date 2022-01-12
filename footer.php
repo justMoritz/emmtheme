@@ -59,6 +59,10 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<div class="testplane">
+  <div class="testplane__inner">
+  </div>
+</div>
 
 </body>
 </html>
