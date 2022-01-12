@@ -130,7 +130,7 @@ var emmthemeAjaxJs = (function($){
       // update edit button
       $("#wp-admin-bar-edit a").attr("href", "https://portfolio.moritz.blue/wp-admin/post.php?post="+message.id+"&action=edit")
 
-      $(".testplane").css("opacity", "0").css("transform", "scale(100)");
+      $(".irisplane").css("opacity", "0").css("transform", "scale(100)");
     });
 
   }; // end _callAjax()
@@ -213,7 +213,7 @@ var emmthemeAjaxJs = (function($){
         var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
         var cx = x-(w/2);
         var cy = y-(h/2);
-        $(".testplane").css("opacity", "1").css("left", cx+"px ").css("top", cy+"px").css("transform", "scale(1)");
+        $(".irisplane").css("opacity", "1").css("left", cx+"px ").css("top", cy+"px").css("transform", "scale(1)");
 
 
 
