@@ -15,7 +15,7 @@
   z-index: 1000;
   top: 10px;
 
-  @media(max-height: 600px), (max-width: 450px) {
+  @media(max-height: 625px), (max-width: 450px) {
     left: 35px;
   }
 }
@@ -27,7 +27,7 @@
   height: 60px !important;
   margin: 0;
 
-  @media(max-height: 600px), (max-width: 450px) {
+  @media(max-height: 625px), (max-width: 450px) {
     height: 25px !important;
   }
 }

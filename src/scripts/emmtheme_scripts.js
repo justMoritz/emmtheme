@@ -37,6 +37,16 @@ var emmthemeAjaxJs = (function($){
   };
 
 
+
+  var _reInitContactForm = function(){
+    // $.get("/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1230", function(content, status){
+      document.querySelectorAll(".wpcf7 > form").forEach( function(e) {
+        wpcf7.init(e)
+      });
+    // });
+  };
+
+
   /**
    * Updates the Nav Menus during Ajax Call
    */
@@ -85,15 +95,22 @@ var emmthemeAjaxJs = (function($){
         + '</article>';
 
       // update the page title
-      document.title = message.title;
+      document.title = message.post_title;
+      var $metaDescriptionField = document.querySelector('meta[name="description"]');
+
+      if (typeof($metaDescriptionField) != 'undefined' && $metaDescriptionField != null){
+        document.querySelector('meta[name="description"]').setAttribute("content", message.post_meta);
+      }else{
+        var meta = document.createElement('meta');
+        meta.description = message.post_meta;
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+      // document.querySelector('meta[name="description"]').setAttribute("content", message.post_meta);
 
       // makes sure everthing is visible
       setTimeout(function(){
         $contentHolder.classList.remove("this--fadedout");
       }, 250);
-
-      // make new history entry
-      history.pushState({}, "", passedUrl);
 
       // updates the nav menus
       _setMenu(passedUrl);
@@ -101,6 +118,9 @@ var emmthemeAjaxJs = (function($){
       // recompile gallery and plugin
       baguetteBox.run('.blocks-gallery-grid');
       halveSpacersOnMobile.init();
+
+      // re-init CF7
+      _reInitContactForm();
 
       // re-execute scripts
       eval(savedScripts); // 🙍🏼‍♀️
@@ -187,6 +207,9 @@ var emmthemeAjaxJs = (function($){
 
         e.preventDefault();
         this.blur();
+
+        // make new history entry
+        history.pushState({}, "", currentHref);
 
         // fade out the content and call the ajax function
         $contentHolder.classList.add("this--fadedout");

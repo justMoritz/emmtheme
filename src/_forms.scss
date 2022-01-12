@@ -1,9 +1,19 @@
 .wpcf7{
+  position: relative;
+
+  @media(max-width: 781px){
+    .wpcf7-form{
+      margin-bottom: 7em;
+    }
+  }
 
   .label-style{
     display: flex;
     width: 100%;
     align-items: flex-end;
+    @media(max-width: 650px){
+      text-transform: capitalize;
+    }
   }
 
   .label-font{
@@ -24,8 +34,8 @@
     padding-bottom: 0;
     margin-top: 0.5em;
     font-weight: normal;
+    font-size: var(--form--font-size);
     border: none;
-    font-size: 1.2rem;
     font-style: italic;
     border-bottom: 3px solid black;
   }
@@ -39,7 +49,9 @@
     position: absolute;
     z-index: 9;
     font-size: 1rem;
-
+    @media(max-width: 650px){
+      font-size: 0.75rem;
+    }
   }
   input:focus,
   textarea:focus{
@@ -74,7 +86,7 @@
     margin-top: 40px;
 
     @media(max-width: 781px){
-      margin-bottom: 50px;
+      margin-bottom: 10px;
       float: left;
       font-size: 1.5rem;
     }
@@ -101,10 +113,11 @@
     width: 100%;
     height: 100%;
     padding: 0;
+    font-size: var(--form--font-size);
   }
   .grow-wrap > textarea,
   .grow-wrap::after {
-    font-size: 1.2rem;
+    font-size: var(--form--font-size);
     font-style: italic;
     // border: 1px solid black;
     // padding: 0.5rem;
@@ -118,6 +131,36 @@
   }
   .this--select{
     color: var(--wp--style--color--link) !important;
+  }
+
+  .wpcf7-response-output{
+    margin: 1.7em 0 0 0!important;
+    padding: 0 !important;
+    border: none !important;
+    line-height: 1.25em !important;
+    color: var(--wp--style--color--link);
+
+    @media(max-width: 781px){
+      margin: 0!important;
+      clear: both;
+    }
+  }
+
+  .no-mobile{
+    @media(max-width: 650px){
+      display: none;
+    }
+  }
+
+  .wpcf7-spinner{
+    right: 1.3em;
+    position: absolute;
+    top: calc(100% + 2.4em);
+    @media(max-width: 781px){
+      right: auto;
+      left: 1.3em;
+      top: calc(100% + 2.7em);
+    }
   }
 
 }

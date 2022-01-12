@@ -99,11 +99,12 @@ function emmtheme_ajax(){
   $return['content']    = do_shortcode( get_post_field( 'post_content', $current_post_id ) );
   $return['post_class'] = get_post_class( $current_post_id );
   $return['post_type']  = get_post_type( $current_post_id );
+  $return['post_meta']  = get_post_meta($current_post_id, '_yoast_wpseo_metadesc', true);
+  $return['post_title'] = (get_post_meta($current_post_id, '_yoast_wpseo_title', true) ? get_post_meta($current_post_id, '_yoast_wpseo_title', true) : get_the_title( $current_post_id ) . ' | '. get_bloginfo('name') );
 
 
   echo json_encode($return);
 
-  // echo 'You passed ' . $_REQUEST["secondvar"] . '!';
   die();
 }
 
